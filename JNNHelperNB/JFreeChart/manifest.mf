@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+OpenIDE-Module: org.jfreechart.wrapper
+OpenIDE-Module-Localizing-Bundle: org/jfreechart/wrapper/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+
