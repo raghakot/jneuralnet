@@ -1,0 +1,3 @@
+jneuralnet.core.activation.Linear
+jneuralnet.core.activation.LogisticSigmoid
+jneuralnet.core.activation.Sigmoid

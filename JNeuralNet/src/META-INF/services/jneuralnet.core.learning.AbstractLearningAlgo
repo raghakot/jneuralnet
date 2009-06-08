@@ -1,0 +1,3 @@
+jneuralnet.core.learning.BackPropagation
+jneuralnet.core.learning.QuickProp
+jneuralnet.core.learning.OpticalBP
