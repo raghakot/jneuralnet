@@ -1,0 +1,2 @@
+jneuralnet.core.learning.costfunction.SumOfSquaresError
+jneuralnet.core.learning.costfunction.AverageSquaredError
