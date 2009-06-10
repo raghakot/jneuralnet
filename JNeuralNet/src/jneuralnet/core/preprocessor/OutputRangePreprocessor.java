@@ -36,7 +36,8 @@ public class OutputRangePreprocessor extends AbstractOutputPreprocessor
      * sets the default range of -0.85 to +0.85
      */
     public OutputRangePreprocessor() {
-        this(-0.85, 0.85);
+//        this(-0.85, 0.85);
+        this(0, 0.8);
     }
 
     public OutputRangePreprocessor(double min, double max) {
