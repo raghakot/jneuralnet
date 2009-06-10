@@ -1,2 +1,2 @@
 jneuralnet.core.preprocessor.CompoundOutputPreprocessor
-jneuralnet.core.preprocessor.OutputRangeCentering
+jneuralnet.core.preprocessor.OutputRangePreprocessor
