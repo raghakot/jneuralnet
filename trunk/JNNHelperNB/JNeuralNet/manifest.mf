@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-OpenIDE-Module: org.wrapper.jneuralnet
-OpenIDE-Module-Localizing-Bundle: org/wrapper/jneuralnet/Bundle.properties
-OpenIDE-Module-Specification-Version: 1.0
-
