@@ -84,6 +84,8 @@ public class Trainer extends javax.swing.JPanel implements LookupListener
         costFunctionResult = Lookup.getDefault().lookupResult(AbstractCostFunction.class);
         trainingAlgoResult.addLookupListener(this);
         costFunctionResult.addLookupListener(this);
+        resultChanged(new LookupEvent(trainingAlgoResult));
+        resultChanged(new LookupEvent(costFunctionResult));
         
         listener = new NetListener();
 

@@ -179,7 +179,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jScrollPane3" alignment="0" pref="752" max="32767" attributes="0"/>
-              <Component id="pnlVisualView" alignment="0" max="32767" attributes="0"/>
+              <Component id="pnlVisualView" alignment="0" pref="752" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -187,7 +187,7 @@
               <Group type="102" attributes="0">
                   <Component id="jScrollPane3" min="-2" pref="215" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="pnlVisualView" max="32767" attributes="0"/>
+                  <Component id="pnlVisualView" pref="200" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -203,7 +203,7 @@
             <Component class="javax.swing.JTable" name="tblNetworkDesign">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="new javax.swing.table.DefaultTableModel(&#xa;    new Object [][] {&#xa;        {&quot;Output&quot;, new Integer(2), null}&#xa;    },&#xa;    new String [] {&#xa;        &quot;Layer&quot;, &quot;Number of Neurons&quot;, &quot;Activation Function&quot;&#xa;    }&#xa;) {&#xa;    Class[] types = new Class [] {&#xa;        java.lang.String.class, java.lang.Integer.class, java.lang.Object.class&#xa;    };&#xa;    boolean[] canEdit = new boolean [] {&#xa;        false, true, true&#xa;    };&#xa;&#xa;    public Class getColumnClass(int columnIndex) {&#xa;        return types [columnIndex];&#xa;    }&#xa;&#xa;    public boolean isCellEditable(int rowIndex, int columnIndex) {&#xa;        return canEdit [columnIndex];&#xa;    }&#xa;}" type="code"/>
+                  <Connection code="new javax.swing.table.DefaultTableModel(&#xa;    new Object [][] {&#xa;        {&quot;Output&quot;, new Integer(2), new Sigmoid()}&#xa;    },&#xa;    new String [] {&#xa;        &quot;Layer&quot;, &quot;Number of Neurons&quot;, &quot;Activation Function&quot;&#xa;    }&#xa;) {&#xa;    Class[] types = new Class [] {&#xa;        java.lang.String.class, java.lang.Integer.class, java.lang.Object.class&#xa;    };&#xa;    boolean[] canEdit = new boolean [] {&#xa;        false, true, true&#xa;    };&#xa;&#xa;    public Class getColumnClass(int columnIndex) {&#xa;        return types [columnIndex];&#xa;    }&#xa;&#xa;    public boolean isCellEditable(int rowIndex, int columnIndex) {&#xa;        return canEdit [columnIndex];&#xa;    }&#xa;}" type="code"/>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="2">
@@ -245,18 +245,7 @@
             <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPanel()&#xa;{&#xa;    public void paintComponent(Graphics g)&#xa;    {&#xa;        super.paintComponent(g);&#xa;        if(isUpdateRequired)&#xa;        {&#xa;            //trigger gc on previous cached image...&#xa;            cached = null;&#xa;            //update cache...&#xa;            cached = VisualUtil.getNetworkImage(&#xa;                Configuration.getInstance().getNeuralNetwork(),&#xa;                pnlVisualView.getWidth(),&#xa;                pnlVisualView.getHeight());&#xa;            isUpdateRequired = false;&#xa;        }&#xa;&#xa;        if(cached != null)&#xa;        g.drawImage(cached, 0, 0, null);&#xa;    }&#xa;}&#xa;"/>
           </AuxValues>
 
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="736" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="170" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-          </Layout>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
         </Container>
       </SubComponents>
     </Container>
