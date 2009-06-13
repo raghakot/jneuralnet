@@ -29,6 +29,7 @@ import jneuralnet.core.NeuralNetwork;
 import jneuralnet.core.NeuronLayer;
 import jneuralnet.core.activation.AbstractActivation;
 import jneuralnet.core.activation.LogisticSigmoid;
+import jneuralnet.core.activation.Sigmoid;
 import jneuralnet.util.VisualUtil;
 import org.jnnhelper.ui.Configuration;
 import org.jnnhelper.ui.MyPainters;
@@ -49,21 +50,20 @@ public final class NetworkBuilder extends javax.swing.JPanel implements LookupLi
     private JComboBox cbxActivationFunctions;
     private boolean isUpdateRequired;
     private BufferedImage cached;
-    private LogisticSigmoid logisticSigmoid = new LogisticSigmoid();
-    private Configuration cfg;
-    private Lookup.Result result = null;
+        
+    private final Lookup.Result<AbstractActivation> result =
+            Lookup.getDefault().lookupResult(AbstractActivation.class);
 
     public NetworkBuilder()
     {
-        initComponents();
-        cfg = Configuration.getInstance();
+        initComponents();        
+//        pnlVisualView.add(new NetworkVisualizer(), BorderLayout.CENTER);
 
         jXHeader1.setBackgroundPainter(MyPainters.getHeaderPainter());
         cbxActivationFunctions = new JComboBox();
         cbxActivationFunctions.setRenderer(new ActivationComboRenderer());
         
-        //detect and manage available activation functions...
-        result = Lookup.getDefault().lookupResult(AbstractActivation.class);
+        //detect and manage available activation functions...        
         result.addLookupListener(this);
         resultChanged(new LookupEvent(result));
 
@@ -230,7 +230,7 @@ public final class NetworkBuilder extends javax.swing.JPanel implements LookupLi
 
         tblNetworkDesign.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Output", new Integer(2), null}
+                {"Output", new Integer(2), new Sigmoid()}
             },
             new String [] {
                 "Layer", "Number of Neurons", "Activation Function"
@@ -257,31 +257,21 @@ public final class NetworkBuilder extends javax.swing.JPanel implements LookupLi
         tblNetworkDesign.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         pnlVisualView.setBorder(javax.swing.BorderFactory.createTitledBorder("Visual Network View"));
-
-        javax.swing.GroupLayout pnlVisualViewLayout = new javax.swing.GroupLayout(pnlVisualView);
-        pnlVisualView.setLayout(pnlVisualViewLayout);
-        pnlVisualViewLayout.setHorizontalGroup(
-            pnlVisualViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 736, Short.MAX_VALUE)
-        );
-        pnlVisualViewLayout.setVerticalGroup(
-            pnlVisualViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 170, Short.MAX_VALUE)
-        );
+        pnlVisualView.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 752, Short.MAX_VALUE)
-            .addComponent(pnlVisualView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlVisualView, javax.swing.GroupLayout.DEFAULT_SIZE, 752, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlVisualView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pnlVisualView, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
         );
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
@@ -291,7 +281,7 @@ public final class NetworkBuilder extends javax.swing.JPanel implements LookupLi
         Object list[] = new Object[3];
         list[0] = "Hidden Layer";
         list[1] = 2;
-        list[2] = logisticSigmoid.getName();
+        list[2] = new LogisticSigmoid();
 
         TableManager.addTableData(tblNetworkDesign, list);
         hiddenLayerIndex++;
@@ -338,6 +328,7 @@ public final class NetworkBuilder extends javax.swing.JPanel implements LookupLi
 
             isUpdateRequired = true;
             pnlVisualView.repaint();
+//            NetworkVisualizer.getInstance().refreshView();
             StatusDisplayer.getDefault().setStatusText(
                     "Neural Network is refreshed with " + " Inputs = " + numInputs + "," + " Outputs = " + numOutputs + " and Hidden Layers = " + hiddenLayerIndex);
         }
@@ -380,8 +371,7 @@ public final class NetworkBuilder extends javax.swing.JPanel implements LookupLi
 
     @Override
     public void resultChanged(LookupEvent ev)
-    {
-        System.out.println("change triggered");
+    {        
         Lookup.Result r = (Lookup.Result) ev.getSource();
         Collection c = r.allInstances();     
         boolean isCbxCleared = false;
@@ -399,7 +389,7 @@ public final class NetworkBuilder extends javax.swing.JPanel implements LookupLi
                         cbxActivationFunctions.removeAllItems();
                         isCbxCleared = true;
                     }         
-                    cbxActivationFunctions.addItem((AbstractActivation) obj);
+                    cbxActivationFunctions.addItem((AbstractActivation) obj);                    
                 }
             }
         }

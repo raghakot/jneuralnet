@@ -26,7 +26,7 @@
                 <attr name="component" methodvalue="org.jnnhelper.ui.networkbuilder.NetworkBuilderTopComponent.findInstance"/>
                 <attr name="displayName" bundlevalue="org.jnnhelper.ui.networkbuilder.Bundle#CTL_NetworkBuilderAction"/>
                 <attr name="instanceCreate" methodvalue="org.openide.windows.TopComponent.openAction"/>
-            </file>
+            </file>            
             <file name="org-jnnhelper-ui-trainer-TrainerAction.instance">
                 <attr name="SystemFileSystem.localizingBundle" stringvalue="org.jnnhelper.ui.Bundle"/>
                 <attr name="component" methodvalue="org.jnnhelper.ui.trainer.TrainerTopComponent.findInstance"/>
@@ -52,6 +52,9 @@
             <file name="TrainerAction.shadow">
                 <attr name="originalFile" stringvalue="Actions/Window/org-jnnhelper-ui-trainer-TrainerAction.instance"/>
             </file>
+            <file name="VisualSampleTestAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/Window/org-jnnhelper-ui-networkbuilder-VisualSampleTestAction.instance"/>
+            </file>
         </folder>
     </folder>
     <folder name="Windows2">
@@ -60,7 +63,7 @@
             <file name="DataBuilderTopComponent.settings" url="DataBuilderTopComponentSettings.xml"/>
             <file name="NetworkBuilderTopComponent.settings" url="NetworkBuilderTopComponentSettings.xml"/>
             <file name="TasksPaneTopComponent.settings" url="TasksPaneTopComponentSettings.xml"/>
-            <file name="TrainerTopComponent.settings" url="TrainerTopComponentSettings.xml"/>
+            <file name="TrainerTopComponent.settings" url="TrainerTopComponentSettings.xml"/>            
         </folder>
         <folder name="Modes">
             <folder name="editor">

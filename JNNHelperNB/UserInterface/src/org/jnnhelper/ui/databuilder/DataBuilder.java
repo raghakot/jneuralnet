@@ -62,7 +62,8 @@ public class DataBuilder extends javax.swing.JPanel implements LookupListener
 
         //Manage dynamically changing data store providers...
         result = Lookup.getDefault().lookupResult(AbstractDataStore.class);
-        result.addLookupListener(this);        
+        result.addLookupListener(this);
+        resultChanged(new LookupEvent(result));
 
         Configuration.getInstance().addPropertyChangeListener(new PropertyChangeListener()
         {
