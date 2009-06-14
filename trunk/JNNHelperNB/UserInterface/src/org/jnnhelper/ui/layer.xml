@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
 <filesystem>
-    <folder name="Actions"> 
+    <folder name="Actions">
         <folder name="Build">
+            <file name="org-jnnhelper-ui-actions-LoadNN.instance"/>
+            <file name="org-jnnhelper-ui-actions-SaveAsXML.instance">
+                <attr name="SystemFileSystem.localizingBundle" stringvalue="org.jnnhelper.ui.Bundle"/>
+                <attr name="delegate" newvalue="org.jnnhelper.ui.actions.SaveAsXML"/>
+                <attr name="displayName" bundlevalue="org.jnnhelper.ui.actions.Bundle#CTL_SaveAsXML"/>
+                <attr name="instanceCreate" methodvalue="org.openide.awt.Actions.alwaysEnabled"/>
+                <attr name="noIconInMenu" boolvalue="false"/>
+            </file>
             <file name="org-jnnhelper-ui-actions-SaveNN.instance">
                 <attr name="SystemFileSystem.localizingBundle" stringvalue="org.jnnhelper.ui.Bundle"/>
                 <attr name="delegate" newvalue="org.jnnhelper.ui.actions.SaveNN"/>
                 <attr name="displayName" bundlevalue="org.jnnhelper.ui.actions.Bundle#CTL_SaveNN"/>
-                <attr name="instanceCreate" methodvalue="org.openide.awt.Actions.alwaysEnabled"/>
-                <attr name="noIconInMenu" boolvalue="false"/>
-            </file>
-            <file name="org-jnnhelper-ui-actions-SaveToXML.instance">
-                <attr name="SystemFileSystem.localizingBundle" stringvalue="org.jnnhelper.ui.Bundle"/>
-                <attr name="delegate" newvalue="org.jnnhelper.ui.actions.SaveToXML"/>
-                <attr name="displayName" bundlevalue="org.jnnhelper.ui.actions.Bundle#CTL_SaveToXML"/>
                 <attr name="instanceCreate" methodvalue="org.openide.awt.Actions.alwaysEnabled"/>
                 <attr name="noIconInMenu" boolvalue="false"/>
             </file>
@@ -42,12 +43,30 @@
                 <attr name="component" methodvalue="org.jnnhelper.ui.networkbuilder.NetworkBuilderTopComponent.findInstance"/>
                 <attr name="displayName" bundlevalue="org.jnnhelper.ui.networkbuilder.Bundle#CTL_NetworkBuilderAction"/>
                 <attr name="instanceCreate" methodvalue="org.openide.windows.TopComponent.openAction"/>
-            </file>            
+            </file>
             <file name="org-jnnhelper-ui-trainer-TrainerAction.instance">
                 <attr name="SystemFileSystem.localizingBundle" stringvalue="org.jnnhelper.ui.Bundle"/>
                 <attr name="component" methodvalue="org.jnnhelper.ui.trainer.TrainerTopComponent.findInstance"/>
                 <attr name="displayName" bundlevalue="org.jnnhelper.ui.trainer.Bundle#CTL_TrainerAction"/>
                 <attr name="instanceCreate" methodvalue="org.openide.windows.TopComponent.openAction"/>
+            </file>
+        </folder>
+    </folder>
+    <folder name="Menu">
+        <folder name="File">
+            <attr name="org-jnnhelper-ui-actions-LoadNN.shadow/Export Network" boolvalue="true"/>
+            <folder name="Export Network">
+                <file name="org-jnnhelper-ui-actions-SaveAsXML.shadow">
+                    <attr name="originalFile" stringvalue="Actions/Build/org-jnnhelper-ui-actions-SaveAsXML.instance"/>
+                    <attr name="position" intvalue="1427"/>
+                </file>
+                <file name="org-jnnhelper-ui-actions-SaveNN.shadow">
+                    <attr name="originalFile" stringvalue="Actions/Build/org-jnnhelper-ui-actions-SaveNN.instance"/>
+                    <attr name="position" intvalue="1428"/>
+                </file>
+            </folder>
+            <file name="org-jnnhelper-ui-actions-LoadNN.shadow">
+                <attr name="originalFile" stringvalue="Actions/Build/org-jnnhelper-ui-actions-LoadNN.instance"/>
             </file>
         </folder>
     </folder>
@@ -57,7 +76,7 @@
             <file name="DataBuilderTopComponent.settings" url="DataBuilderTopComponentSettings.xml"/>
             <file name="NetworkBuilderTopComponent.settings" url="NetworkBuilderTopComponentSettings.xml"/>
             <file name="TasksPaneTopComponent.settings" url="TasksPaneTopComponentSettings.xml"/>
-            <file name="TrainerTopComponent.settings" url="TrainerTopComponentSettings.xml"/>            
+            <file name="TrainerTopComponent.settings" url="TrainerTopComponentSettings.xml"/>
         </folder>
         <folder name="Modes">
             <folder name="editor">
