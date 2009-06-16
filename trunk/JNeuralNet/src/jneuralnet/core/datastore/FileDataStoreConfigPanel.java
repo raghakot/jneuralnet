@@ -50,7 +50,7 @@ class FileDataStoreConfigPanel extends DataStoreConfigPanel
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        jLabel1.setText(org.openide.util.NbBundle.getMessage(FileDataStoreConfigPanel.class, "FileDataStoreConfigPanel.jLabel1.text")); // NOI18N
+        jLabel1.setText("Read Path"); // NOI18N
 
         jLabel2.setText(org.openide.util.NbBundle.getMessage(FileDataStoreConfigPanel.class, "FileDataStoreConfigPanel.jLabel2.text")); // NOI18N
 
@@ -83,8 +83,8 @@ class FileDataStoreConfigPanel extends DataStoreConfigPanel
                     .addComponent(jLabel2))
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtReadPath, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
-                    .addComponent(txtWritePath, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE))
+                    .addComponent(txtReadPath, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
+                    .addComponent(txtWritePath, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING)

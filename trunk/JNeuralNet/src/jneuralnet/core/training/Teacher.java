@@ -126,6 +126,7 @@ public class Teacher extends AbstractSerializableBean implements Serializable
 
             arrListeners = new ArrayList<TrainListenerAdapter>();
             trainerDelegate = new TrainingThread();
+            trainerDelegate.setPriority(Thread.MIN_PRIORITY);
             trainingDataRepository = new TrainingDataRepository(net);
             learningAlgo = DEFAULT_ALGO;
             stopErrorType = COST_ERROR;
@@ -343,6 +344,17 @@ public class Teacher extends AbstractSerializableBean implements Serializable
     public NeuralNetwork getNeuralNet()
     {
         return neuralNetwork;
+    }
+
+    /**
+     * Sets the priority of the trainer thread associated with this teacher.
+     * By default MIN_PRIORITY is used.
+     * @param priority The priority index between 1 to 10 with 1 being
+     * the lowest.
+     */
+    public void setThreadPriority(int priority)
+    {
+        trainerDelegate.setPriority(priority);
     }
 
     /**
