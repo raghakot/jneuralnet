@@ -77,8 +77,7 @@ public class Trainer extends javax.swing.JPanel implements LookupListener
     {
         initComponents();
         initGraphComponents();
-        Configuration cfg = Configuration.getInstance();
-
+        
         //Manage learning algos and cost fucntions that are added dynamically...
         trainingAlgoResult = Lookup.getDefault().lookupResult(AbstractLearningAlgo.class);
         costFunctionResult = Lookup.getDefault().lookupResult(AbstractCostFunction.class);
@@ -550,14 +549,15 @@ public class Trainer extends javax.swing.JPanel implements LookupListener
                     ? Teacher.COST_ERROR : Teacher.PERCENTAGE_ERROR;
             nn.getTeacher().startTraining(stopError, minCycles, maxCycles, stopErrorType);
             txtAcceptableError.setEnabled(false);
-            TrainerTopComponent.getDefault().setTrainingStatus(true);
 
+            TrainerTopComponent.getDefault().setTrainingStatus(true);
             btnPause.setEnabled(true);
             btnStop.setEnabled(true);
             btnStart.setEnabled(false);
         }
         catch (Exception e)
         {
+            e.printStackTrace();
             StatusDisplayer.getDefault().setStatusText(e.getMessage());
         }
 }//GEN-LAST:event_btnStartActionPerformed

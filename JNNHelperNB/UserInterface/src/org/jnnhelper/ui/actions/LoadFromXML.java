@@ -17,19 +17,18 @@ import org.openide.util.LookupListener;
 import org.openide.util.NbBundle;
 import org.openide.util.actions.CallableSystemAction;
 
-public final class LoadNN extends CallableSystemAction implements LookupListener
-{
+public final class LoadFromXML extends CallableSystemAction implements LookupListener {
+
     private Lookup.Result result;
 
-    public LoadNN()
-    {
+    public LoadFromXML() {
         result = TrainerTopComponent.getDefault().getLookup().lookupResult(Boolean.class);
         result.addLookupListener(this);
         resultChanged(new LookupEvent(result));
     }
 
     public String getName() {
-        return NbBundle.getMessage(LoadNN.class, "CTL_LoadNN");
+        return NbBundle.getMessage(LoadNN.class, "CTL_LoadFromXML");
     }
 
     public HelpCtx getHelpCtx() {
@@ -38,22 +37,23 @@ public final class LoadNN extends CallableSystemAction implements LookupListener
 
     @Override
     public void performAction() {
-        String fname = FileManager.getLoadFile("NeuralNet Files", "nn");
+        String fname = FileManager.getLoadFile("XML Files", "xml");
         if (fname == null) {
             return;
         }
 
         try {
             Configuration.getInstance().setNeuralNetwork(
-                    NeuralNetwork.loadNet(fname));
+                    NeuralNetwork.loadFromXML(fname));
             StatusDisplayer.getDefault().setStatusText(fname + "successfully loaded");
         } catch (Exception ex) {
+
             StatusDisplayer.getDefault().setStatusText("Failed: " + ex,
                     StatusDisplayer.IMPORTANCE_ERROR_HIGHLIGHT);
         }
     }
 
-    public void resultChanged(LookupEvent ev) {        
+    public void resultChanged(LookupEvent ev) {
         Lookup.Result r = (Lookup.Result) ev.getSource();
         Collection c = r.allInstances();
         if (!c.isEmpty()) {
@@ -69,4 +69,3 @@ public final class LoadNN extends CallableSystemAction implements LookupListener
         return false;
     }
 }
-

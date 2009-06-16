@@ -32,6 +32,7 @@ public final class TasksPaneTopComponent extends TopComponent implements LookupL
     /** path to the icon used by the component and its open action */
 //    static final String ICON_PATH = "SET/PATH/TO/ICON/HERE";
     private static final String PREFERRED_ID = "TasksPaneTopComponent";
+    private Lookup.Result result;
 
     public TasksPaneTopComponent() {
         initComponents();
@@ -43,6 +44,11 @@ public final class TasksPaneTopComponent extends TopComponent implements LookupL
         putClientProperty(TopComponent.PROP_MAXIMIZATION_DISABLED, Boolean.TRUE);
         putClientProperty(TopComponent.PROP_UNDOCKING_DISABLED, Boolean.TRUE);
         initMyComponents();
+
+        //Listen to changes in training state...
+        result = TrainerTopComponent.getDefault().getLookup().lookupResult(Boolean.class);
+        result.addLookupListener(this);
+        resultChanged(new LookupEvent(result));
     }
 
     /** This method is called from within the constructor to
