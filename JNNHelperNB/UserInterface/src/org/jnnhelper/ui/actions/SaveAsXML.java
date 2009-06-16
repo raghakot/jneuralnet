@@ -13,7 +13,7 @@ import org.openide.awt.StatusDisplayer;
 public final class SaveAsXML implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
-                String fname = FileManager.getLoadFile("XML Files", "xml");
+                String fname = FileManager.getSaveFile("XML Files", "xml");
         if (fname == null) {
             return;
         }
