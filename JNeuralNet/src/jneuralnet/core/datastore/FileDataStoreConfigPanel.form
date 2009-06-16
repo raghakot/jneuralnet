@@ -24,8 +24,8 @@
               </Group>
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtReadPath" alignment="1" pref="309" max="32767" attributes="0"/>
-                  <Component id="txtWritePath" alignment="1" pref="309" max="32767" attributes="0"/>
+                  <Component id="txtReadPath" alignment="1" pref="458" max="32767" attributes="0"/>
+                  <Component id="txtWritePath" alignment="1" pref="458" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -59,9 +59,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-          <ResourceString bundle="jneuralnet/core/datastore/Bundle.properties" key="FileDataStoreConfigPanel.jLabel1.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
-        </Property>
+        <Property name="text" type="java.lang.String" value="Read Path" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
