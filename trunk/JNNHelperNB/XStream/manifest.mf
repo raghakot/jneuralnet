@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+OpenIDE-Module: org.wrapper.xstream
+OpenIDE-Module-Localizing-Bundle: org/wrapper/xstream/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+
