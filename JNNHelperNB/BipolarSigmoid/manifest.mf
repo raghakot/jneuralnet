@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+OpenIDE-Module: jneuralnet.core.activation
+OpenIDE-Module-Localizing-Bundle: jneuralnet/core/activation/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+
