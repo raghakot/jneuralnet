@@ -3,6 +3,13 @@
 <filesystem>
     <folder name="Actions">
         <folder name="Build">
+            <file name="org-jnnhelper-ui-actions-LoadFromXML.instance">
+                <attr name="SystemFileSystem.localizingBundle" stringvalue="org.jnnhelper.ui.Bundle"/>
+                <attr name="delegate" newvalue="org.jnnhelper.ui.actions.LoadFromXML"/>
+                <attr name="displayName" bundlevalue="org.jnnhelper.ui.actions.Bundle#CTL_LoadFromXML"/>
+                <attr name="instanceCreate" methodvalue="org.openide.awt.Actions.alwaysEnabled"/>
+                <attr name="noIconInMenu" boolvalue="false"/>
+            </file>
             <file name="org-jnnhelper-ui-actions-LoadNN.instance"/>
             <file name="org-jnnhelper-ui-actions-SaveAsXML.instance">
                 <attr name="SystemFileSystem.localizingBundle" stringvalue="org.jnnhelper.ui.Bundle"/>
@@ -54,6 +61,7 @@
     </folder>
     <folder name="Menu">
         <folder name="File">
+            <attr name="org-jnnhelper-ui-actions-LoadFromXML.shadow/org-jnnhelper-ui-actions-LoadNN.shadow" boolvalue="true"/>
             <attr name="org-jnnhelper-ui-actions-LoadNN.shadow/Export Network" boolvalue="true"/>
             <folder name="Export Network">
                 <file name="org-jnnhelper-ui-actions-SaveAsXML.shadow">
@@ -65,9 +73,14 @@
                     <attr name="position" intvalue="1428"/>
                 </file>
             </folder>
-            <file name="org-jnnhelper-ui-actions-LoadNN.shadow">
-                <attr name="originalFile" stringvalue="Actions/Build/org-jnnhelper-ui-actions-LoadNN.instance"/>
-            </file>
+            <folder name="Import Network">
+                <file name="org-jnnhelper-ui-actions-LoadFromXML.shadow">
+                    <attr name="originalFile" stringvalue="Actions/Build/org-jnnhelper-ui-actions-LoadFromXML.instance"/>
+                </file>
+                <file name="org-jnnhelper-ui-actions-LoadNN.shadow">
+                    <attr name="originalFile" stringvalue="Actions/Build/org-jnnhelper-ui-actions-LoadNN.instance"/>
+                </file>
+            </folder>
         </folder>
     </folder>
     <folder name="Windows2">
