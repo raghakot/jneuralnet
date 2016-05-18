@@ -1,5 +1,5 @@
 # jneuralnet
-My attempt at building a neural network framework back in school days.
+My attempt at building a neural network framework and a visualization toolkit back in school days.
 This started largely as an attempt to demystify and understand how neural nets and backpropogation worked.
 
 This was originally hosted on https://kenai.com/projects/jneuralnet which is shutting down pretty soon. 
