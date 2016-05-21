@@ -6,5 +6,4 @@ This was originally hosted on https://kenai.com/projects/jneuralnet which is shu
 My remaining todo back then was to implement grid search to automatically select architecture. 
 
 Link to the [blog](http://jneuralnet.blogspot.com/) that went along with development.
-
-Needless to say, I am no longer working on this actively. This is mostly here for nostalgic reasons.
+Needless to say, I am no longer working on this actively. This is mostly archived for nostalgic reasons.
